@@ -5175,7 +5175,18 @@ AAAAAElFTkSuQmCC
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Answer:</strong> 
-Here are a few examples of policies produced by the Q-Learner
+Given US traffic rules, here are some basic rules that could present an optimal policy:</p>
+<ul>
+<li>If lights are <em>red</em>, always choose <strong>None</strong>.</li>
+<li>When <em>green</em> head in the direction of the waypoint when there is no collision, e.g.<ul>
+<li>Turning right, and oncoming is not 'left', and left traffic is not 'forwards'</li>
+<li>Going 'forwards', and oncoming is not 'left'</li>
+<li>Turning 'left', and oncoming is not 'forwards'/'right'/'left' etc</li>
+</ul>
+</li>
+<li>When there is a collision, choose <strong>None</strong> and wait until the waypoint is safe to execute.  Alternatively, leverage an alternative routing algorithm to pick another direction based upon preference.</li>
+</ul>
+<p>Here are a few examples of policies produced by the Q-Learner
 <strong>Syntax</strong>: (waypoint, inputs['light'], inputs['left'], inputs['right'], inputs['oncoming'])</p>
 <h3 id="Example-1">Example 1<a class="anchor-link" href="#Example-1">&#182;</a></h3><p>('left', 'red', None, 'left', 'forward')</p>
 <ul>
